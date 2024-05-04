@@ -1,0 +1,21 @@
+@charset "UTF-8";
+section{
+    background-color: white;
+    margin: -0.5rem;
+    margin-top: 3rem;
+}
+section div{
+    width: 100%;
+    padding: 1rem;
+    border-bottom: thin solid rgb(222, 17, 17);
+}
+section b,p{
+    color: black;
+}
+section b{
+    font-size: 2rem;
+    font-weight: bolder;
+}
+section p{
+    font-size: 1rem;
+}

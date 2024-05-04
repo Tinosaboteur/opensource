@@ -1,0 +1,43 @@
+@charset "UTF-8";
+.calculator {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  label {
+    display: inline-block;
+    width: 120px;
+    margin-bottom: 10px;
+  }
+  
+  input[type="number"], select {
+    width: calc(100% - 130px);
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: rgb(222, 17, 17);
+  }
+  
+  #result {
+    margin-top: 20px;
+  }
+  

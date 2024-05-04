@@ -1,0 +1,36 @@
+@charset "UTF-8";
+.slick-list{
+    width: 76rem;
+    height: 27rem;
+}
+body {
+    background-color: rgb(23, 22, 22);
+}
+
+b{
+    color: white;
+    font-size: larger;
+}
+.introduce b{
+    font-size: 2.5rem;
+}
+.introduce{
+    margin: 5rem;
+    margin-left: 2rem;
+    float: left;
+    width: 35%;
+}
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15rem;
+}
+
+.container div {
+    flex: 1 0 50%;
+    box-sizing: border-box;
+    padding: 0.5rem;
+}
+p,li{
+    color: rgb(185, 184, 184);
+}

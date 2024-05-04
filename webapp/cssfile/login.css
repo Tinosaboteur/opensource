@@ -1,0 +1,117 @@
+@charset "UTF-8";
+/* section login*/
+
+section#login {
+    margin: -2rem -11px -7px -9px;
+    padding: 2rem;
+    background-image: url("https://th.bing.com/th/id/R.f720f09dfc79dcf715f5f5118b564931?rik=QcPlig8L3oXWHg&pid=ImgRaw&r=0");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+section #login {
+    /* position: relative; */
+    background-color: white;
+    padding: 2rem;
+    width: 27rem;
+    padding-bottom: 5rem;
+    margin-bottom: -2rem;
+}
+
+section div p {
+    background-color: black;
+    font-size: x-large;
+    text-align: center;
+    width: 20rem;
+    margin-left: 2rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    color: white;
+}
+
+section div input#user {
+    margin: 3rem auto 2rem auto;
+    height: 3rem;
+    width: 25rem;
+    border-radius: 2rem;
+}
+
+section div input#password {
+    height: 3rem;
+    width: 25rem;
+    border-radius: 2rem;
+}
+
+section div input::placeholder {
+    text-align: center;
+}
+
+section input {
+    text-align: center;
+}
+
+section #button {
+    margin-top: 1rem;
+    float: right;
+}
+
+section button {
+    padding: 0.7rem;
+    margin-left: 0.4rem;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    border: none;
+}
+
+section button#huy {
+    background-color: #ffffff;
+    border-radius: 2rem;
+}
+section button#huy:hover {
+    color: white;
+    background-color: black;
+    transition: ease-in-out 0.2s;
+}
+
+section button#dangnhap {
+    background-color: rgb(222, 17, 17);
+    border-radius: 2rem;
+    color: white;
+}
+
+section button#dangnhap:hover {
+    background-color: black;
+    color: white;
+    transition: ease-in-out 0.2s;
+}
+
+
+article{
+    background-color: white;
+    margin-top: 7rem;
+    margin-left: 3rem;
+    max-width: 30rem;
+    position: absolute;
+}
+
+article b{
+    font-size: 3rem;
+}
+article ul li{
+    margin: 0.5rem auto;
+    font-size: larger;
+    font-weight: 50;
+}
+#article{
+    float: right;
+    width: 37rem;
+     height: 44rem;
+     margin-bottom: 5rem;
+     margin-right: 2rem;
+     margin-top: 5rem;
+}
+/* section trang chủ */
+
+

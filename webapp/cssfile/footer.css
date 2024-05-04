@@ -1,0 +1,85 @@
+@charset "UTF-8";
+footer {
+    background-color: #262b2b;
+    float: inline-start;
+    height: auto;
+    clear: both;
+    width: 100%;
+    margin-left: -0.5rem;
+    padding-right: 1.5rem;
+}
+
+div.ttlh {
+    width: 35%;
+    float: left;
+}
+
+div.ttlh p {
+    margin-left: 5px;
+}
+
+footer p {
+    font-size: x-large;
+    font-weight: bold;
+    color: white;
+}
+
+footer i {
+    float: left;
+    margin-right: 4px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: large;
+}
+
+footer ul li {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+footer ul li a:hover {
+    color: rgb(222, 17, 17);
+    transition: ease-in-out 0.4s;
+}
+
+div.ht {
+    width: 35%;
+    float: left;
+}
+
+div.ht p {
+    margin-left: 38px;
+}
+
+div.tudt {
+    float: left;
+}
+
+div.tudt li a i {
+    margin-right: 40px;
+}
+
+div.map {
+    float: left;
+    position: relative;
+    clear: both;
+}
+
+.map b {
+    float: left;
+    padding-left: 2rem;
+    font-size: xx-large;
+    color: white;
+    position: relative;
+}
+
+.map a {
+    font-size: larger;
+    float: left;
+    clear: both;
+    padding-left: 2rem;
+    color: rgb(222, 17, 17);
+}
