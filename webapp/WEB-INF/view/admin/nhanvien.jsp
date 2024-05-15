@@ -19,9 +19,13 @@
             <i class="fa-solid fa-bars fa-sm"></i>
         </button>
         <div class="dropdown-content">
-            <a href="/demospringmvc/user/home">Trang Chủ</a> 
-            <a href="/demospringmvc/user/AI">Huấn Luyện Viên AI</a>
-            <a href="/demospringmvc/user/TDEE-BMR">Tính TDEE/BMR</a>
+                      <a href="/demospringmvc/admin/home">Trang Chủ</a> 
+            <a href="/demospringmvc/admin/chitietgoitap">Chi Tiết Gói Tập</a> 
+            <a href="/demospringmvc/admin/dangkiloptap">Đăng Ký Lớp Tập</a> 
+            <a href="/demospringmvc/admin/khachhang">Khách Hàng</a>
+            <a href="/demospringmvc/admin/nhanvien">Nhân Viên</a> 
+            <a href="/demospringmvc/admin/thietbi">Thiết bị</a> 
+            <a href="/demospringmvc/admin/phukien">Phụ kiện</a> 
         </div>
     </div>
     <a id="tool" href="javascript:void(0);" onclick="editMode()"><i class="fa-solid fa-wrench"></i></a>

@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 header {
     display: flex;
 }
@@ -36,17 +37,16 @@ header {
     border-radius: 50%;
 }
 
-a#tool, a#add{
+a#tool, a#add {
     font-size: xx-large;
     margin: 2rem;
     color: black;
     display: block;
 }
 
-a#tool:hover, a#add:hover{
+a#tool:hover, a#add:hover {
     color: rgb(222, 17, 17);
 }
-
 
 body {
     font-family: Arial, sans-serif;
@@ -58,14 +58,14 @@ section {
     margin-left: -0.5rem;
 }
 
-.customer-info-container {
+.chitietgoitap-info-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 2rem;
 }
 
-.customer-card {
+.chitietgoitap-card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width: calc(33.333% - 40px);
@@ -76,15 +76,15 @@ section {
     text-align: center;
 }
 
-.customer-card:hover {
+.chitietgoitap-card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.customer-info {
+.chitietgoitap-info {
     margin: 10px 0;
 }
 
-.customer-name {
+.chitietgoitap-name {
     color: #333;
     font-size: 1.5em;
 }

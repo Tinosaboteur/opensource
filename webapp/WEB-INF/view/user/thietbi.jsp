@@ -67,55 +67,49 @@
 </div> 
 
 <script>
-$(document).ready(function() {
-    $.ajax({
-        url: '/demospringmvc/admin/khachhang/data',
-        type: 'GET',
-        success: function(data) {
-            customerData = data;
-            renderCustomerList(customerData);
-        }
-    });
+var equipmentData = [];
 
-    $('#name').on('input', function() {
-        searchCustomer();
-    });
-
-    $('.close-icon').on('click', function() {
-        $('#name').val('');
-        renderCustomerList(customerData); 
-    });
-});
-
-function searchCustomer() {
+function searchEquipment() {
     var searchValue = $('#name').val().toLowerCase();
-    var filteredData = customerData.filter(function(khachhang) {
-        return khachhang.name.toLowerCase().includes(searchValue);
+    var filteredData = equipmentData.filter(function(thietbi) {
+        return thietbi.name.toLowerCase().includes(searchValue);
     });
-    renderCustomerList(filteredData);
+    renderEquipmentList(filteredData);
 }
 
-function renderCustomerList(data) {
-    var customerList = $('.customer-info-container');
-    customerList.empty();
+function renderEquipmentList(data) {
+    var equipmentList = $('.equipment-list');
+    equipmentList.empty();
     if (data.length === 0) {
-        customerList.append('<p style="font-size: 3rem">Không tìm thấy thông tin khách hàng...</p>');
+    	equipmentList.append('<p style="font-size: 3rem">Không tìm thấy...</p>');
     } else {
-        $.each(data, function(i, khachhang) {
-            var customerCard = $('<div>').addClass('customer-card');
-            $('<h2>').addClass('customer-name').text(khachhang.name).appendTo(customerCard);
-            $('<p>').addClass('customer-info').text('Ngày sinh: ' + khachhang.birthdate).appendTo(customerCard);
-            $('<p>').addClass('customer-info').text('Giới tính: ' + khachhang.gender).appendTo(customerCard);
-            $('<p>').addClass('customer-info').text('Địa chỉ: ' + khachhang.address).appendTo(customerCard);
-            $('<p>').addClass('customer-info').text('SĐT: ' + khachhang.phoneNumber).appendTo(customerCard);
-            $('<p>').addClass('customer-info').text('Email: ' + khachhang.email).appendTo(customerCard);
-            $('<p>').addClass('customer-info').text('Ngày tham gia: ' + khachhang.joinDate).appendTo(customerCard);
-            customerCard.appendTo(customerList);
+        $.each(data, function(i, thietbi) {
+            var equipmentCard = $('<div>').addClass('equipment-card');
+            $('<h2>').addClass('equipment-name').text(thietbi.name).appendTo(equipmentCard);
+            $('<img>').addClass('equipment-img').attr('src', thietbi.img).attr('alt', thietbi.name).appendTo(equipmentCard);
+            $('<p>').addClass('equipment-info').text(thietbi.description).appendTo(equipmentCard);
+            $('<p>').addClass('equipment-info').html('Trạng thái: <span>' + thietbi.status + '</span>').appendTo(equipmentCard);
+            $('<p>').addClass('equipment-info').html('Số lượng: <span>' + thietbi.quantity + ' Cái</span>').appendTo(equipmentCard);
+            var form = $('<form>').attr('action', '/demospringmvc/thietbi/delete').attr('method', 'post').attr('onsubmit', 'return confirm("Bạn có chắc chắn muốn xóa thiết bị này không?");').appendTo(equipmentCard);
+            $('<input>').attr('type', 'hidden').attr('name', 'equipmentID').val(thietbi.equipmentID).appendTo(form);
+            equipmentCard.appendTo(equipmentList);
         });
     }
 }
 
-    </script>
+$(document).ready(function() {
+    $.ajax({
+        url: '/demospringmvc/user/thietbi/data',
+        type: 'GET',
+        success: function(data) {
+            equipmentData = data;
+            renderEquipmentList(equipmentData);
+        }
+    });
+
+    $('#name').on('keyup', searchEquipment);
+});
+</script>
 		<a id="link" target="_blank"
 			href="https://www.tiktok.com/@phamducthongxoxo"><i
 			class="fa-brands fa-tiktok"></i></a> <a id="link" target="_blank"

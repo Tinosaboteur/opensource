@@ -1,0 +1,35 @@
+@charset "UTF-8";
+#chatbox {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#chatForm {
+    margin-top: 20px;
+}
+
+#chatForm input[type="text"] {
+    width: calc(100% - 80px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px 0 0 5px;
+}
+
+#chatForm input[type="submit"] {
+    width: 80px;
+    padding: 10px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+#chatForm input[type="submit"]:hover {
+    background-color: #0056b3;
+}

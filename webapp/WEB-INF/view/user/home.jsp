@@ -20,26 +20,7 @@
 
 <link rel="stylesheet" href="${pageContext.request.contextPath}/cssfile/header.css" />
 <script src="https://kit.fontawesome.com/37c51843b5.js"crossorigin="anonymous"></script>
-<script>
-	$(document).ready(function() {
-		$(".search-icon").click(function(e) {
-		e.stopPropagation();
-			$(".search-container").css("width", "40%");
-			$(".search-container input[type='text']").show();
-			$(this).hide();
-			$(".close-icon").show();
-		});
 
-		$(".close-icon").click(function(e) {
-			e.stopPropagation();
-			$(".search-container").css("width", "75px");
-			$(".search-container input[type='text']").hide();
-			$(this).hide();
-			$(".search-icon").show();
-		});
-	});
-
-</script>
 </head>
 <body>
 	<header>
@@ -61,15 +42,7 @@
 			</div>
 		</div>
 		<a href="#" id="logo"> NHÓM 11 FITNESS & YOGA </a>
-		<div class="search-container">
-			<span class="search-icon"><i
-				class="fa-solid fa-magnifying-glass fa-xl"
-				style="color: rgb(222, 17, 17);"></i></span>
-			<form action="">
-				<input type="text" placeholder="Tìm kiếm...">
-			</form>
-			<span class="close-icon">&times;</span>
-		</div>
+		
 		<a id="link" target="_blank"
 			href="https://www.tiktok.com/@phamducthongxoxo"><i
 			class="fa-brands fa-tiktok"></i></a> <a id="link" target="_blank"

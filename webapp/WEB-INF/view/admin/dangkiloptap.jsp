@@ -12,14 +12,18 @@
 </head>
 <body>
    <header>
-      <div class="dropdown">
+<div class="dropdown ">
         <button class="dropbtn">
             <i class="fa-solid fa-bars fa-sm"></i>
         </button>
         <div class="dropdown-content">
-            <a href="/demospringmvc/user/home">Trang Chủ</a> 
-            <a href="/demospringmvc/user/AI">Huấn Luyện Viên AI</a>
-            <a href="/demospringmvc/user/TDEE-BMR">Tính TDEE/BMR</a>
+                      <a href="/demospringmvc/admin/home">Trang Chủ</a> 
+            <a href="/demospringmvc/admin/chitietgoitap">Chi Tiết Gói Tập</a> 
+            <a href="/demospringmvc/admin/dangkiloptap">Đăng Ký Lớp Tập</a> 
+            <a href="/demospringmvc/admin/khachhang">Khách Hàng</a>
+            <a href="/demospringmvc/admin/nhanvien">Nhân Viên</a> 
+            <a href="/demospringmvc/admin/thietbi">Thiết bị</a> 
+            <a href="/demospringmvc/admin/phukien">Phụ kiện</a> 
         </div>
     </div>
     <a id="tool" href="javascript:void(0);" onclick="editMode()"><i class="fa-solid fa-wrench"></i></a>
@@ -33,24 +37,24 @@
 <div id="addDangkiloptapForm" style="display:none;">
     <h2>Thêm Đăng Ký Lớp Tập</h2>
     <div class="dangkiloptap-card">
-        <input type="text" placeholder="Tên Khách Hàng" id="newCustomerName">
-        <input type="text" placeholder="Tên Lịch Tập" id="newScheduleName">
+        <select id="newCustomerID">
+        </select>
+        <select id="newScheduleID">
+        </select>
         <button onclick="addDangkiloptap()">Thêm</button>
     </div>
 </div>
+
 <section class="dangkiloptap-info-container">
 </section>
 
-<!-- Form chỉnh sửa -->
 <div id="editDangkiloptapForm" style="display:none;">
     <h2>Chỉnh Sửa Đăng Ký Lớp Tập</h2>
     <div class="dangkiloptap-card">
         <input type="hidden" id="editRegistrationID">
         <select id="editCustomerID">
-            <!-- Option tags will be dynamically populated with customer names -->
         </select>
         <select id="editScheduleID">
-            <!-- Option tags will be dynamically populated with schedule class names -->
         </select>
         <button onclick="updateDangkiloptap()">OK</button>
     </div>
@@ -73,16 +77,10 @@ function editMode() {
 
 function addDangkiloptapForm() {
     $('#addDangkiloptapForm').toggle();
-}
 
-function addDangkiloptapForm() {
-    $('#addDangkiloptapForm').toggle();
+    $('#newCustomerID').val('');
+    $('#newScheduleID').val('');
 
-    // Reset form fields
-    $('#newCustomerName').val('');
-    $('#newScheduleName').val('');
-
-    // Populate dropdowns with empty data
     var customerDropdown = $('#newCustomerID');
     var scheduleDropdown = $('#newScheduleID');
 
@@ -101,9 +99,11 @@ function addDangkiloptapForm() {
     });
 }
 
+
 function addDangkiloptap() {
     var confirmAdd = confirm("Bạn có chắc chắn muốn thêm đăng ký lớp tập này không?");
     if (confirmAdd) {
+        location.reload();
         var newDangkiloptap = {
             customerID: $('#newCustomerID').val(),
             scheduleID: $('#newScheduleID').val()
@@ -147,15 +147,14 @@ $(document).ready(function() {
     $.each(khachhangData, function(i, khachhang) {
         $('#editCustomerID').append($('<option>', {
             value: khachhang.customerID,
-            text: khachhang.name // Use customer name for display
+            text: khachhang.name
         }));
     });
 
-    // Populate schedule class names in edit form dropdown
     $.each(lichtapData, function(i, lichtap) {
         $('#editScheduleID').append($('<option>', {
             value: lichtap.scheduleID,
-            text: lichtap.className // Use schedule class name for display
+            text: lichtap.className 
         }));
     });
 
@@ -164,7 +163,7 @@ $(document).ready(function() {
 function searchDangkiloptap() {
     var searchValue = $('#name').val().toLowerCase();
     var filteredData = dangkiloptapData.filter(function(dangkiloptap) {
-        return dangkiloptap.customerName.toLowerCase().includes(searchValue); 
+        return getCustomerNameByID(dangkiloptap.customerID).toLowerCase().includes(searchValue); 
     });
     renderDangkiloptapList(filteredData); 
 }
