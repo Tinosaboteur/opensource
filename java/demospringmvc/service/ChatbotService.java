@@ -20,7 +20,7 @@ public class ChatbotService {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        headers.set("Authorization", "Bearer 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");
+        headers.set("Authorization", "Bearer sk-proj-B1slHrGndYi7AlVxYXFUT3BlbkFJzE53qwFqxSTMkxQBgSn3");
 
         ArrayList<HashMap<String, String>> messages = new ArrayList<>();
         messages.add(new HashMap<String, String>() {{ put("role", "system"); put("content", "Thanks"); }});

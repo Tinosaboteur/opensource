@@ -40,6 +40,11 @@ public class HomeController {
 	HomeService HomeService;
 
 	//admin
+	//home
+	@RequestMapping(value = "/admin/home", method = RequestMethod.GET)
+	public String homeAD() {
+	    return "admin/home";
+	}
 	//phukien
 	@RequestMapping(value = "/admin/phukien", method = RequestMethod.GET)
 	public String phukienAD() {
@@ -72,11 +77,6 @@ public class HomeController {
 	    return HomeService.updatephukien(pk);
 	}
 
-	// API để lấy chi tiết của một phụ kiện
-	@GetMapping("/admin/phukien/detail/{name}")
-	public phukien detailPhukien(@PathVariable String name) {
-	    return HomeService.findphukien(name);
-	}
 
 	
 	@RequestMapping(value = "/admin/trang-chu")
@@ -110,37 +110,13 @@ public class HomeController {
 	    return data;
 	}
 
+	//nhanvien
 	@RequestMapping(value = "/admin/nhanvien", method = RequestMethod.GET)
 	public String nhanvienAD() {
 	    return "admin/nhanvien";
 	}
-	// API để cung cấp dữ liệu cho nhân viên
-	@RequestMapping(value = "/admin/nhanvien/data", method = RequestMethod.GET, produces = "application/json")
-	@ResponseBody
-	public List<nhanvien> nhanvienData() {
-	    return HomeService.GetDatanhanvien();
-	}
-
-	
-	// API để thêm một nhân viên mới
-	@PostMapping("/admin/nhanvien/add")
-	public nhanvien addNhanvien(@RequestBody nhanvien nv) {
-	    return HomeService.addNhanvien(nv);
-	}
 	
 
-	// API để xóa một nhân viên
-	@DeleteMapping("/admin/nhanvien/delete/{id}")
-	public String deleteNhanvien(@PathVariable int id) {
-	    HomeService.deleteNhanvien(id);
-	    return "Nhân viên đã được xóa thành công";
-	}
-
-	// API để cập nhật một nhân viên
-	@PutMapping("/admin/nhanvien/update")
-	public nhanvien updateNhanvien(@RequestBody nhanvien nv) {
-	    return HomeService.updateNhanvien(nv);
-	}
 	
 	
 	//chitietgoitap
@@ -148,63 +124,15 @@ public class HomeController {
 	public String chitietgoitapAD() {
 	    return "admin/chitietgoitap";
 	}
-	// API để cung cấp dữ liệu cho chi tiết gói tập
-	@GetMapping("/chitietgoitap/data")
-	public Map<String, Object> chitietgoitapData() {
-	    Map<String, Object> data = new HashMap<>();
-	    data.put("chitietgoitap", HomeService.GetDatachitietgoitap());
-	    data.put("khachhang", HomeService.GetDatakhachhang());
-	    data.put("goitap", HomeService.GetDatagoitap());
-	    return data;
-	}
+	
 
-	// API để thêm một chi tiết gói tập mới
-	@PostMapping("/admin/chitietgoitap/add")
-	public chitietgoitap addChitietgoitap(@RequestBody chitietgoitap ctgt) {
-	    return HomeService.addChitietgoitap(ctgt);
-	}
-
-	// API để cập nhật một chi tiết gói tập
-	@PutMapping("/admin/chitietgoitap/update")
-	public chitietgoitap updateChitietgoitap(@RequestBody chitietgoitap ctgt) {
-	    return HomeService.updateChitietgoitap(ctgt);
-	}
-
-	// API để lấy chi tiết của một chi tiết gói tập
-	@GetMapping("/admin/chitietgoitap/detail/{id}")
-	public chitietgoitap detailChitietgoitap(@PathVariable int id) {
-	    return HomeService.findChitietgoitap(id);
-	}
 	
 	//khachhang
 	@RequestMapping(value = "/admin/khachhang", method = RequestMethod.GET)
 	public String khachhangAD() {
 	    return "admin/khachhang";
 	}
-	// API để cung cấp dữ liệu cho khách hàng
-	@RequestMapping(value = "/admin/khachhang/data", method = RequestMethod.GET, produces = "application/json")
-	@ResponseBody
-	public List<khachhang> khachhangData() {
-	    return HomeService.GetDatakhachhang();
-	}
-
-	// API để thêm một khách hàng mới
-	@PostMapping("/admin/khachhang/add")
-	public khachhang addKhachhang(@RequestBody khachhang kh) {
-	    return HomeService.addKhachhang(kh);
-	}
-
-	// API để cập nhật một khách hàng
-	@PutMapping("/admin/khachhang/update")
-	public khachhang updateKhachhang(@RequestBody khachhang kh) {
-	    return HomeService.updateKhachhang(kh);
-	}
-
-	// API để lấy chi tiết của một khách hàng
-	@GetMapping("/admin/khachhang/detail/{name}")
-	public khachhang detailKhachhang(@PathVariable String name) {
-	    return HomeService.findKhachhang(name);
-	}
+	
 
 	//thietbi
 	@RequestMapping(value = "/admin/thietbi", method = RequestMethod.GET)
@@ -238,11 +166,7 @@ public class HomeController {
 	    return HomeService.updateThietbi(tb);
 	}
 
-	// API để lấy chi tiết của một thiết bị
-	@GetMapping("/admin/thietbi/detail/{name}")
-	public thietbi detailThietbi(@PathVariable String name) {
-	    return HomeService.findThietbi(name);
-	}
+
 
 	//dangkiloptap
 	@RequestMapping(value = "/admin/dangkiloptap", method = RequestMethod.GET)
@@ -250,43 +174,7 @@ public class HomeController {
 	    return "admin/dangkiloptap";
 	}
 	
-	//API cung cấp data cho trang dangkiloptap
-	@RequestMapping(value = "/admin/dangkiloptap/data", method = RequestMethod.GET, produces = "application/json")
-	@ResponseBody
-	public Map<String, Object> dangkiloptapData() {
-	    Map<String, Object> data = new HashMap<>();
-	    data.put("dangkiloptap", HomeService.GetDatadangkiloptap());
-	    data.put("khachhang", HomeService.GetDatakhachhang());
-	    data.put("lichtap", HomeService.GetDatalichtap());
-	    return data;
-	}
-
-	
-
-	// API để thêm một đăng ký lớp tập mới
-	@PostMapping("/admin/dangkiloptap/add")
-	public dangkiloptap addDangkiloptap(@RequestBody dangkiloptap dklt) {
-	    return HomeService.addDangkiloptap(dklt);
-	}
-
-	// API để xóa một đăng ký lớp tập
-	@DeleteMapping("/admin/dangkiloptap/delete/{id}")
-	public String deleteDangkiloptap(@PathVariable int id) {
-	    HomeService.deleteDangkiloptap(id);
-	    return "Đăng ký lớp tập đã được xóa thành công";
-	}
-
-	// API để cập nhật một đăng ký lớp tập
-	@PutMapping("/admin/dangkiloptap/update")
-	public dangkiloptap updateDangkiloptap(@RequestBody dangkiloptap dklt) {
-	    return HomeService.updateDangkiloptap(dklt);
-	}
-
-
-
-	
 	//user
-	
 	//trangchu
 	// API để cung cấp trang chủ
 	@RequestMapping(value = "/user/home", method = RequestMethod.GET)
@@ -432,9 +320,9 @@ public class HomeController {
         return modelAndView;
     }
     //AI
-    @RequestMapping(value = {"/AI"})
+    @RequestMapping(value = {"/user/AI"})
 	public String AI() {
-		return "NewFile";
+		return "user/AI";
 	}
     
 }

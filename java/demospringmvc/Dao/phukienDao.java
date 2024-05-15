@@ -29,13 +29,13 @@ public class phukienDao {
     }
 
     public phukien updatePhukien(phukien pk) {
-        String sql = "UPDATE phukien SET Name = ?, Description = ?, Quantity = ?, Status = ?, Img = ?, Price = ? WHERE EquipmentID = ?";
+        String sql = "UPDATE phukien SET Name = ?, Description = ?, Quantity = ?, Status = ?, Img = ?, Price = ? WHERE PhukienID = ?";
         jdbcTemplate.update(sql, pk.getName(), pk.getDescription(), pk.getQuantity(), pk.getStatus(), pk.getImg(), pk.getPhukienID(), pk.getPrice());
         return pk;
     }
 
     public void deletePhukien(int id) {
-        String sql = "DELETE FROM phukien WHERE EquipmentID = ?";
+        String sql = "DELETE FROM phukien WHERE PhukienID = ?";
         jdbcTemplate.update(sql, id);
     }
 
